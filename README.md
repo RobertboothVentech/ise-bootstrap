@@ -50,3 +50,7 @@ This will allow you to view the page properly in your browser on your machine
 * Change @iconSpritePath to 'portals/foobar/glyphicons-halflings.png'
 * Change @iconWhiteSpritePath to 'portals/foobar/glyphicons-halflings-white.png'
 * change any links in your html
+
+# MISC
+
+HTML Src: http://www.cisco.com/en/US/docs/security/ise/1.1.1/user_guide/ise_guest_pol.html
