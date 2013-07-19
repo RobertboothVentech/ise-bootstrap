@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Guest Portal Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="portals/myportal/bootstrap.min.css" rel="stylesheet" type="text/css" /> 
+<!-- <link href="dev.bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+</head>
+<body>
+
+<div class="container-fluid">
+<div class="row-fluid">
+  <div class="page-header">
+     <h1>Guest Portal Login <small>powered by Your Company (<em>&amp; Cisco ISE</em>)</small></h1>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span1">&nbsp;</div> <!-- side padding -->
+<div class="span10">
+
+<!--INSERT HEADER HERE --><h1>Self Registration created user: fsdf</h1><!--END HEADER HERE -->
+
+<ul>
+<!--INSERT RESULTS HERE -->
+<li> User name: fsdf </li>
+<li> Password: 9F_ </li>
+<li> First Name: fdsf </li>
+<li> Last Name: sdf </li>
+<li> Email Address:  </li>
+<li> Phone Number:  </li>
+<li> Company:  </li>
+<li> Optional Data 1:  </li>
+<li> Optional Data 2:  </li>
+<li> Optional Data 3:  </li>
+<li> Optional Data 4:  </li>
+<li> Optional Data 5: </li>
+<!--END RESULTS HERE -->
+</ul>
+
+<p>&nbsp;</p>
+
+<form id="loginform" action="/guestportal/Login.action" method="post">
+<input type="submit" name="button2" id="button2" onclick="javascript:doOk()" value="Log In" class="btn btn-success" />
+</form>			  
+
+</div> <!-- /span10 -->
+<div class="span1">&nbsp;</div> <!-- side padding -->
+</div> <!-- /fluid row -->
+
+</body>
+</html>
+<script>
+function doOk()
+{
+    document.forms[0].action = "Login.action";
+    document.forms[0].submit();
+}
+</script>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Guest Portal Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="portals/myportal/bootstrap.min.css" rel="stylesheet" type="text/css" /> 
+<!--  <link href="dev.bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+</head>
+<body>
+
+<div class="container-fluid">
+<div class="row-fluid">
+  <div class="page-header">
+     <h1>Guest Portal Login <small>powered by Your Company (<em>&amp; Cisco ISE</em>)</small></h1>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span1">&nbsp;</div> <!-- side padding -->
+<div class="span10">
+
+<h1>Acceptable Use Policy</h1>
+
+Please accept the policy:<br /><br />
+1. You are responsible for </br>(1) maintaining the confidentiality of the password and 
+</br>(2) all activities that occur under your username and password. 
+</br></br>
+2. Cisco systems offers the Service for activities such as the active use of e-mail, 
+instant messaging, browsing the World Wide Web and accessing corporate intranets. High 
+volume data transfers, especially sustained high volume data transfers, are not permitted. 
+Hosting a web server or any other server by use of our Service is prohibited. Trying to 
+access someone elseâ€™s account, sending unsolicited bulk e-mail, collection of other 
+peopleâ€™s personal data without their knowledge and interference with other network users 
+are all prohibited.
+</br></br>
+3. Cisco systems reserves the right to suspend the Service if (1) Cisco systems reasonably 
+believes that your use of the Service is unreasonably excessive or (2) you are using the 
+Service for criminal or illegal activities.
+</br></br>
+4. You do not have the right to resell this Service to a third party.
+</br></br>
+5. Cisco systems reserves the right to revise, amend or modify these Terms &amp; Conditions, 
+our other policies and agreements, and aspects of the Service itself. Notice of any 
+revision, amendment, or modification will be posted on Cisco systemâ€™s website and will 
+be effective as to existing users 30 days after posting same.
+</br></br>
+
+	  <form action="/guestportal/AcceptPolicy.action" method="post">
+        <input  type="checkbox" name="guestUser.acceptUsePolicy" id="guestUser.acceptUsePolicy" value="false" onclick="javascript:enableButtons()" /> Accept terms and conditions
+        <br />
+        <input  type="Submit" id="acceptButton"  value="Accept" class="btn btn-success"/>
+				<input  type="button"  id="declineButton" value="Decline" onclick="javascript:doDeclineTerms()" class="btn btn-danger"/>
+
+	  </form>
+
+<form id="declineTerms" onsubmit="return true;" action="/guestportal/DeclinePolicy.action" method="post"><table class="wwFormTable">
+<input type="hidden" id="buttonClicked" name="buttonClicked" value=""></input>
+<input type="hidden" id="switch_url" name="switch_url" value=""></input>
+<input type="hidden" id="redirect" name="redirect" value=""></input>
+<input type="hidden" id="err_flag" name="err_flag" value=""></input>
+</form>
+
+</div> <!-- /span10 -->
+<div class="span1">&nbsp;</div> <!-- side padding -->
+</div> <!-- /fluid row -->
+
+
+</body>
+</html>
+<script>
+enableButtons();
+function enableButtons(){
+  accepttermsCheckbox = document.getElementById('guestUser.acceptUsePolicy').checked;
+  if (!accepttermsCheckbox) {
+	document.getElementById('acceptButton').disabled = true;
+	document.getElementById('guestUser.acceptUsePolicy').value = false;
+  }
+  else {
+	document.getElementById('acceptButton').disabled = false;
+	document.getElementById('guestUser.acceptUsePolicy').value = true;
+  }
+}
+</script>
+<script>
+function doDeclineTerms()
+{
+    var declineTermsForm = document.getElementById("declineTerms");
+    declineTermsForm.submit();    
+}
+</script>

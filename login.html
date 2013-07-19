@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Guest Portal Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <link href="portals/myportal/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+<link href="dev.bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script language='javascript'>
+</script>
+
+</head>
+<body>
+
+<div class="container-fluid">
+<div class="row-fluid">
+  <div class="page-header">
+  <h1>Guest Portal Login <small>powered by Your Company (<em>&amp; Cisco ISE</em>)</small></h1>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span1">&nbsp;</div> <!-- side padding -->
+<div class="span7">
+  <p>Some marketing wording can be placed here... perhaps a poster advertising how great your company is, check out my brilliant logo below!</p>
+  <p  class="text-center" ><img src="portals/myportal/logo.png" alt="logo.png" /></p>
+</div> <!-- /span7 -->
+<div class="span3">
+
+<div class="row-fluid">
+
+<form id="cuesLoginForm" method="POST"   action="/guestportal/LoginCheck.action" class="form">
+ <div class="control-group">
+<label class="control-label" for="username">Username</label>
+<div class="controls">
+<input alt="Username:" name="guestUser.name"  id="username" type="text" size="20" value="" placeholder="username"/>
+</div> <!-- /controls -->
+</div> <!--/ control-group -->
+<div class="control-group">
+ <label class="control-label" for="password"> Password</label>
+ <div class="controls">
+<input alt="Password:" name="guestUser.password" id="password" type="password" size="20" value="" placeholder="********"/>
+</div> <!-- /controls -->
+</div> <!--/ control-group -->
+<div class="control-group">
+<div class="controls">
+<input type="submit" name="button" id="button" value="Log In"  class="btn btn-success"/>
+</div> <!-- /controls -->
+</div> <!--/ control-group -->
+<input type="hidden" name="drpPassword" id="drpPassword"  />
+<input type="hidden" name="drpUsername" id="drpUsername"  />
+</form>
+
+</div> <!-- /close sub row -->
+
+<div class="row-fluid">
+<!--        <form id="doSelfService" action="/guestportal/SelfService.action">-->
+<!--        <input type="hidden" id="buttonClicked" name="buttonClicked" 
+value=""></input>-->
+<!--        <input type="hidden" id="switch_url" name="switch_url" value=""></input>-->
+<!--        <input type="hidden" id="redirect" name="redirect" value=""></input>-->
+<!--        <input type="hidden" id="err_flag" name="err_flag" value=""></input>-->
+<!--         </form>-->
+        <!-- form for self service  -->
+<struts2:form id="selfServiceForm" action="SelfService.action">
+<input type="hidden" id="buttonClicked" name="buttonClicked" value="${buttonClicked}"></input>
+<input type="hidden" id="switch_url" name="switch_url" value="${switch_url}"></input>
+<input type="hidden" id="redirect" name="redirect" value="${redirect}"></input>
+<input type="hidden" id="err_flag" name="err_flag" value="${err_flag}"></input>
+</struts2:form>
+<struts2:form id="changePasswordForm"  action="ChangePassLoginMultiPortal.action">
+<input type="hidden" id="username" name="guestUser.name" value="${username}"></input>
+<input type="hidden" id="password" name="guestUser.password" value="${password}"></input>
+</struts2:form>
+ 
+ <ul class="unstyled">
+<li><a href="javascript:doChangePassword();" class="link" ><i class="icon-lock"></i> Change Password</a></li>
+<li><a href="javascript:doSelf();"  class="link"><i class="icon-user"></i> SelfService</a> </li>
+<li><a href="javascript:submitMyForm();"  class="link"><i class="icon-globe"></i> Device Registration</a></li>
+</ul>
+
+</div> <!-- /close sub row -->
+
+</div> <!-- / span4 -->
+<div class="span1">&nbsp;</div> <!-- side padding -->
+</div> <!-- / fluid row -->
+
+
+</div> <!-- / fluid container -->
+				
+</body>
+</html>
+<script>
+function doSelf()
+{
+	document.forms[0].action = "SelfService.action";
+	document.getElementById("buttonClicked").value = 
+document.getElementById("buttonClicked").value;
+    document.getElementById("redirect").value = document.getElementById("redirect").value;
+    document.getElementById("switch_url").value = 
+document.getElementById("switch_url").value;
+    document.forms[0].submit();
+}
+function doChangePassword()
+{
+    //var changePasswordForm = document.getElementById("changePasswordForm");
+    //changePasswordForm.submit();    
+    document.forms[0].action = "ChangePassLoginMultiPortal.action";
+    document.getElementById("username").value = document.getElementById("username").value;
+    document.getElementById("password").value = document.getElementById("password").value;
+    document.forms[0].submit();
+}
+function submitMyForm(){
+    document.forms[0].action = "DevRegPortalLogin.action";
+    document.getElementById("drpUsername").value = 
+document.getElementById("username").value;
+    document.getElementById("drpPassword").value = 
+document.getElementById("password").value;
+    document.forms[0].submit();
+}
+</script>
