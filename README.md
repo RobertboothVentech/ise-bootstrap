@@ -7,19 +7,19 @@ A responsive portal theme for Cisco ISE, powered by bootstrap
 
 * Download the files :)
 * On Cisco ISE, create a custom portal
-** Administration -> Web Portal Management -> Settings -> Guest -> Multi-Portal Configuration
-** Call it "myportal"
-** Select "Custom Default Portal (_upload files_)"
+ * Administration -> Web Portal Management -> Settings -> Guest -> Multi-Portal Configuration
+ * Call it "myportal"
+ * Select "Custom Default Portal (_upload files_)"
 * upload the files to the portal
 * map the files
-** Login file -> login.html
-** AUP file -> aup.html
-** Change Password file -> cpass.html	 
-** Self Registration file -> selfreg.html
-** Self Registration Results file -> selfsuc.html
-** Device Registration file -> _fixme_
-** Guest Success file -> sucess.html
-** Error Page file 	-> err.html
+ * Login file -> login.html
+ * AUP file -> aup.html
+ * Change Password file -> cpass.html	 
+ * Self Registration file -> selfreg.html
+ * Self Registration Results file -> selfsuc.html
+ * Device Registration file -> _fixme_
+ * Guest Success file -> sucess.html
+ * Error Page file 	-> err.html
 * Set your authentication to the correct sequence
 * create an authorization result to the new portal
 * update your authorization rule to point to new result!
@@ -30,17 +30,17 @@ To test changes locally on your harddisk without uploading to ISE, included is `
 
 Replace
 
-'''
+```
 <link href="portals/myportal/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <!--  <link href="dev.bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
-'''
+```
 
 With
 
-'''
+```
 <!-- <link href="portals/myportal/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
 <link href="dev.bootstrap.min.css" rel="stylesheet" type="text/css" />
-'''
+```
 
 This will allow you to view the page properly in your browser on your machine
 
