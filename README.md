@@ -3,6 +3,15 @@ ise-bootstrap
 
 A responsive portal theme for Cisco ISE, powered by bootstrap
 
+## WARNING - Cisco ISE doesn't support bootstrap v3.2.0
+
+Looks like ISE 1.2 (*patch8*) limits custom portal uploads to jpeg/css/html/png. bootstrap v3.2.0 has moved to sag/ttf/woff.
+
+**For the time being, use the old version of ise-bootstrap**:
+
+**https://github.com/linickx/ise-bootstrap/archive/d8f15de2f18e637556a2a11ffafd2db05fbd9fab.zip**
+
+
 # Installation
 
 * Download the files :)
